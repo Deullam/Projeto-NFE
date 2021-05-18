@@ -1,0 +1,8 @@
+<ndd-order-form 
+    [formModel]="form"
+    (submit)="onSubmit($event)"
+    (cancel)="redirect()">
+</ndd-order-form>
+
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

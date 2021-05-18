@@ -1,0 +1,166 @@
+<div class="feature-view-tab__detail">
+    <div class="feature-view-tab__content">
+        <div class="row">
+            
+            <!-- #region Coluna 1 -->
+            <div class="col-sm-12">
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <span class="feature-view__title">Dados cadastrais</span>
+                    </div>
+                </div>
+
+                <div class="row feature-view__group">
+                    <div class="col-sm-12">
+
+                        <div class="row">
+
+                            <div class="col-sm-6 feature-view__body">
+                                <div>
+                                    <span class="feature-view__label">Natureza da Operação</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.natureOperation }}" class="feature-view__value">
+                                        {{ invoice?.natureOperation }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div>
+                                    <span class="feature-view__label">Número da Nota</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.number }}" class="feature-view__value">
+                                        {{ invoice?.number }}
+                                    </span>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="row feature-view__group">
+                    <div class="col-sm-12">
+
+                        <div class="row">
+
+                            <div class="col-sm-6 feature-view__body">
+                                <div>
+                                    <span class="feature-view__label">Chave de Acesso</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.keyAccess }}" class="feature-view__value">
+                                        {{ invoice?.keyAccess ? toStringKeyAccess(invoice?.keyAccess) : 'Não emitida' }}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-6">
+                                <div>
+                                    <span class="feature-view__label">Status</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.status }}" class="feature-view__value">
+                                        {{ toStringStatus(invoice?.status) }}
+                                    </span>
+                                </div>
+                            </div>
+                            
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="row feature-view__group">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6 feature-view__body">
+                                <div>
+                                    <span class="feature-view__label">Data de Criação</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.entryDate }}" class="feature-view__value">
+                                        {{ formatDate(invoice?.entryDate) | date:'medium' }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>
+                                    <span class="feature-view__label">Data de Emissão</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.issueDate }}" class="feature-view__value">
+                                        {{ invoice?.issueDate ? (formatDate(invoice?.issueDate) | date:'medium') : 'Não emitida' }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row feature-view__group">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6 feature-view__body">
+                                <div>
+                                    <span class="feature-view__label">Emitente</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.senderName }}" class="feature-view__value">
+                                        {{ invoice?.senderName }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div>
+                                    <span class="feature-view__label">Destinatário</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.receiverName }}" class="feature-view__value">
+                                        {{ invoice?.receiverName }}
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+
+                <div class="row feature-view__group">
+                    <div class="col-sm-12">
+                        <div class="row">
+                            <div class="col-sm-6 feature-view__body">
+                                <div>
+                                    <span class="feature-view__label">Transportador</span>
+                                </div>
+                                <div class="truncate">
+                                    <span title="{{ invoice?.carrierName }}" class="feature-view__value">
+                                        {{ invoice?.carrierName }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <!-- CAMPO VAZIO -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>    
+            <!-- #endregion -->
+
+        </div>
+    </div>
+</div>
+<div class="feature-view-tab__footer">
+    <button class="ndd-ng-button ndd-ng-button--primary" (click)="onEdit()">Editar</button>
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Voltar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

@@ -1,0 +1,22 @@
+<div class="feature-view-tab__detail">
+    <div class="feature-view-tab__content feature-view-tab__content--without-footer">
+        <div class="feature-view-tab__content__header">
+            <ndd-invoice-item-form 
+                [formModelItem]="invoiceItemFormGroup" 
+                [hasSelectedItem]="index > -1" 
+                (submit)="onSaveProduct($event)"
+                (deleteItem)="onDeleteItem()">
+            </ndd-invoice-item-form>
+        </div>
+        <div class="feature-view-tab__content__body">
+            <ndd-invoice-item-list 
+                [invoiceItems]="invoice?.invoiceItems" 
+                [height]="'100%'" 
+                (selectItem)="onSelectedItem($event)">
+            </ndd-invoice-item-list>
+        </div>
+    </div>
+</div>
+
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

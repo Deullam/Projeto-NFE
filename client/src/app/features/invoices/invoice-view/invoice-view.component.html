@@ -1,0 +1,22 @@
+<div class="feature-view">
+    <ndd-ng-titlebar titlebarIcon="ndd-font ndd-font-cardboard-box"
+        [titlebarTitle]="title"
+        [titlebarInfoItems]="infoItems"
+        [titlebarRouterToReturnOnClose]="returnRoute">
+    </ndd-ng-titlebar>
+    
+    <ndd-ng-tabsbar>
+        <ndd-ng-tab tabId="ndd-ng-tab-invoice-info"
+            [tabRoute]="'./info'"
+            tabTitle="Dados cadastrais">            
+        </ndd-ng-tab>
+        <ndd-ng-tab tabId="ndd-ng-tab-invoice-itens"
+            [tabRoute]="'./itens'"
+            tabTitle="Itens da Nota">            
+        </ndd-ng-tab>
+    </ndd-ng-tabsbar>
+
+    <div class="feature-view-tab" >
+        <router-outlet></router-outlet>
+    </div>
+</div>

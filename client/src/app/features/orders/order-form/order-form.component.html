@@ -1,0 +1,78 @@
+<form (ngSubmit)="onSubmit($event)" [formGroup]="formModel">
+    <div class="form feature-view-tab__content">
+        <div class="row">  
+            <div class="col-sm-12">
+                <h1 class="form__title">Dados cadastrais</h1>
+            </div>    
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form__fieldset">
+                <div class="row">
+                    <div class="col-md-12 form__group">
+                        <label for="customer" class="form__label" [class.form__label--error]="formModel.get('customer').touched && formModel.get('customer').hasError('required')">
+                            Cliente
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <input type="text" id="customer" formControlName="customer" class="form__input" placeholder="Informe o nome do cliente" [class.form__input--error]="formModel.get('customer').touched && formModel.get('customer').hasError('required')">
+                        <label class="form__label form__label--error" 
+                            *ngIf="formModel.get('customer').touched && formModel.get('customer').hasError('required')">
+                            Campo obrigatório
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form__group">
+                        <label for="product" class="form__label" [class.form__label--error]="formModel.get('product').touched && formModel.get('product').hasError('required')">
+                            Produto
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <!-- <kendo-autocomplete
+                            [data]="data"
+                            [valueField]="'name'"
+                            [filterable]="true"
+                            formControlName="product"
+                            (filterChange)="onAutoCompleteChange($event)">
+                        </kendo-autocomplete> -->
+
+                        <kendo-dropdownlist
+                            [data]="data"
+                            formControlName="product"
+                            [textField]="'name'"
+                            [valueField]="'name'"
+                            [filterable]="true"
+                            (filterChange)="onAutoCompleteChange($event)"
+                            class="form__k-dropdown">
+                        </kendo-dropdownlist>
+
+                        <label class="form__label form__label--error" 
+                            *ngIf="formModel.get('product').touched && formModel.get('product').hasError('required')">
+                            Campo obrigatório
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 form__fieldset">
+                <div class="row">
+                    <div class="col-md-12 form__group">
+                        <label for="quantity" class="form__label" [class.form__label--error]="formModel.get('quantity').touched && formModel.get('quantity').hasError('required')">
+                            Quantidade
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <input type="number" id="quantity" formControlName="quantity" class="form__input" placeholder="0" [class.form__input--error]="formModel.get('quantity').touched && formModel.get('quantity').hasError('required')">
+                        <label class="form__label form__label--error" 
+                            *ngIf="formModel.get('quantity').touched && formModel.get('quantity').hasError('required')">
+                            Campo obrigatório
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="feature-view-tab__footer">
+        <button type="submit" class="ndd-ng-button ndd-ng-button--primary" [disabled]="formModel.invalid">Salvar</button>
+        <button type="button" class="ndd-ng-button ndd-ng-button--cancel" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

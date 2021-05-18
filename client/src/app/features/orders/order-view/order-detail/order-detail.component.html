@@ -1,0 +1,56 @@
+<div class="feature-view-tab__content">
+    <div class="row">
+        
+        <!-- #region Coluna 1 -->
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <span class="feature-view__title">Dados cadastrais</span>
+                </div>
+            </div>
+            <div class="row feature-view__group">
+                <div class="col-sm-12">
+                    <div class="row">
+                        <div class="col-md-4 col-sm-6 feature-view__body">
+                            <div>
+                                <span class="feature-view__label">Cliente</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ order?.customer }}" class="feature-view__value">
+                                    {{ order?.customer }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Produto</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ order?.productName }}" class="feature-view__value">
+                                    {{ order?.productName }}
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <div>
+                                <span class="feature-view__label">Quantidade</span>
+                            </div>
+                            <div class="truncate">
+                                <span title="{{ order?.quantity }}" class="feature-view__value">
+                                    {{ order?.quantity }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </div>    
+        <!-- #endregion -->
+    </div>
+</div>
+<div class="feature-view-tab__footer">
+    <button class="ndd-ng-button ndd-ng-button--primary" (click)="onEdit()">Editar</button>
+    <button class="ndd-ng-button ndd-ng-button--cancel" (click)="redirect()">Voltar</button>
+</div>
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

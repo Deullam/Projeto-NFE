@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{88E6D708-94E9-4408-956C-44B77E3EBD3A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheSolutionBrothers.NFe.Infra.XML</RootNamespace>
+    <AssemblyName>TheSolutionBrothers.NFe.Infra.XML</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ExtensionMethods\XMLGenerator.cs" />
+    <Compile Include="Features\Invoices\InvoiceRepositoryXMLStatusEqualsOpenException.cs" />
+    <Compile Include="Features\Invoices\IInvoiceRepositoryXML.cs" />
+    <Compile Include="Features\Invoices\InvoiceRepositoryXMLNullInvoiceException.cs" />
+    <Compile Include="Features\Invoices\InvoiceRepositoryXML.cs" />
+    <Compile Include="Features\Invoices\Mappers\AddressMapper.cs" />
+    <Compile Include="Features\Invoices\Mappers\IMapper.cs" />
+    <Compile Include="Features\Invoices\Mappers\InvoiceItemMapper.cs" />
+    <Compile Include="Features\Invoices\Mappers\InvoiceMapper.cs" />
+    <Compile Include="Features\Invoices\Mappers\InvoiceTaxMapper.cs" />
+    <Compile Include="Features\Invoices\Mappers\ReceiverMapper.cs" />
+    <Compile Include="Features\Invoices\Mappers\SenderMapper.cs" />
+    <Compile Include="Features\Invoices\Models\DestModel.cs" />
+    <Compile Include="Features\Invoices\Models\DetModel.cs" />
+    <Compile Include="Features\Invoices\Models\EmitModel.cs" />
+    <Compile Include="Features\Invoices\Models\EnderModel.cs" />
+    <Compile Include="Features\Invoices\Models\ICMSModel.cs" />
+    <Compile Include="Features\Invoices\Models\ICMS00Model.cs" />
+    <Compile Include="Features\Invoices\Models\ICMSTotModel.cs" />
+    <Compile Include="Features\Invoices\Models\IdeModel.cs" />
+    <Compile Include="Features\Invoices\Models\ImpostoModel.cs" />
+    <Compile Include="Features\Invoices\Models\InfNFeModel.cs" />
+    <Compile Include="Features\Invoices\Models\NFeModel.cs" />
+    <Compile Include="Features\Invoices\Models\ProdModel.cs" />
+    <Compile Include="Features\Invoices\Models\TotalModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Domain\TheSolutionBrothers.NFe.Domain.csproj">
+      <Project>{c6a0212f-3d78-47b2-8337-c3008b41c9f8}</Project>
+      <Name>TheSolutionBrothers.NFe.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Infra\TheSolutionBrothers.NFe.Infra.csproj">
+      <Project>{11CC1658-E2C4-45FA-BB48-F450F40DCDBD}</Project>
+      <Name>TheSolutionBrothers.NFe.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

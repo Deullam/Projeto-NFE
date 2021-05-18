@@ -1,0 +1,39 @@
+<kendo-grid 
+    [data]="receiverGridService | async" 
+    [pageSize]="state.take" 
+    [loading]="receiverGridService.loading"
+    [skip]="state.skip"
+    [sort]="state.sort" 
+    [sortable]="true" 
+    [pageable]="pageableSettings"
+    [selectable]="selectableSettings"
+    [style.height]="'100%'"
+    (dataStateChange)="dataStateChange($event)"
+    (selectionChange)="onSelectionChange($event)">
+    
+    <ng-template kendoGridToolbarTemplate position="top">
+        <div class="pkg-manager-grid__action-container">
+            <button (click)="onClick()" class="pkg-manager-grid__action">
+                <i class="ndd-font ndd-font-create pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Novo destinatário</span>
+            </button>
+            <button (click)="deleteReceiver()" class="pkg-manager-grid__action"  [disabled]="!selectedRows.length">
+                <i class="ndd-font ndd-font-delete pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Remover</span>
+            </button>
+            <button (click)="redirectOpenReceiver()" class="pkg-manager-grid__action" [disabled]="selectedRows.length != 1">
+                <i class="ndd-font ndd-font-open pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Abrir</span>
+            </button>
+        </div>
+    </ng-template>
+
+    <kendo-grid-checkbox-column width="40"></kendo-grid-checkbox-column>
+    <kendo-grid-column field="id" title="ID" width="60"></kendo-grid-column>
+    <kendo-grid-column field="name" title="Nome"></kendo-grid-column>
+    <kendo-grid-column field="personType" title="Tipo de pessoa" width="150">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <div>{{ getPersonTypeDescription(dataItem.personType) }}</div>
+        </ng-template>
+    </kendo-grid-column>
+</kendo-grid>

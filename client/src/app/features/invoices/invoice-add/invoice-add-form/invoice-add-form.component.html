@@ -1,0 +1,132 @@
+<form (ngSubmit)="onSubmit($event)" [formGroup]="formModel" class="form">
+    <div class="feature-view-tab__content">
+        <section>
+            <div class="row">  
+                <div class="col-sm-12">
+                    <h1 class="form__title">Dados cadastrais</h1>
+                </div>    
+            </div>
+
+            <div class="row">
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="natureOperation" class="form__label" [class.form__label--error]="formModel.get('natureOperation').touched && formModel.get('natureOperation').hasError('required')">
+                                Natureza da Operação
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input type="text" id="natureOperation" formControlName="natureOperation" class="form__input" placeholder="Informe a natureza da operação" [class.form__input--error]="formModel.get('natureOperation').touched && formModel.get('natureOperation').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('natureOperation').touched && formModel.get('natureOperation').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="number" class="form__label" [class.form__label--error]="formModel.get('number').touched && formModel.get('number').hasError('required')">
+                                Número
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input type="text" id="number" formControlName="number" class="form__input" placeholder="Informe o número da nota" [class.form__input--error]="formModel.get('number').touched && formModel.get('number').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('number').touched && formModel.get('number').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                    <div class="col-sm-12 col-md-6 form__fieldset">
+                        <div class="row">
+                            <div class="col-sm-12 form__group">
+                                <label for="sender" class="form__label" [class.form__label--error]="formModel.get('sender').touched && formModel.get('sender').hasError('required')">
+                                    Emitente
+                                    <span class="form__label form__label--required">*</span>
+                                </label>
+                                <kendo-dropdownlist
+                                    [data]="senderData"
+                                    formControlName="sender"
+                                    [textField]="'fancyName'"
+                                    [valueField]="'fancyName'"
+                                    [filterable]="true"
+                                    (filterChange)="onSenderAutoCompleteChange($event)"
+                                    class="form__k-dropdown">
+                                </kendo-dropdownlist>
+                                <label class="form__label form__label--error" *ngIf="formModel.get('sender').touched && formModel.get('sender').hasError('required')">
+                                    Campo obrigatório
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 form__fieldset">
+                        <div class="row">
+                            <div class="col-sm-12 form__group">
+                                <label for="receiver" class="form__label" [class.form__label--error]="formModel.get('receiver').touched && formModel.get('receiver').hasError('required')">
+                                   Destinatário
+                                    <span class="form__label form__label--required">*</span>
+                                </label>
+                                <kendo-dropdownlist
+                                    [data]="receiverData"
+                                    formControlName="receiver"
+                                    [textField]="'name'"
+                                    [valueField]="'name'"
+                                    [filterable]="true"
+                                    (filterChange)="onReceiverAutoCompleteChange($event)"
+                                    class="form__k-dropdown">
+                                </kendo-dropdownlist>
+                                <label class="form__label form__label--error" *ngIf="formModel.get('receiver').touched && formModel.get('receiver').hasError('required')">
+                                    Campo obrigatório
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 form__fieldset">    
+                        <div class="row">
+                            <div class="col-sm-12 form__group">
+                                <label for="carrier" class="form__label" [class.form__label--error]="formModel.get('carrier').touched && formModel.get('carrier').hasError('required')">
+                                    Transportador
+                                    <span class="form__label form__label--required">*</span>
+                                </label>
+                                <kendo-dropdownlist
+                                    [data]="carrierData"
+                                    formControlName="carrier"
+                                    [textField]="'name'"
+                                    [valueField]="'name'"
+                                    [filterable]="true"
+                                    (filterChange)="onCarrierAutoCompleteChange($event)"
+                                    class="form__k-dropdown">
+                                </kendo-dropdownlist>
+                                <label class="form__label form__label--error" *ngIf="formModel.get('carrier').touched && formModel.get('carrier').hasError('required')">
+                                    Campo obrigatório
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+        </section>
+
+        <ndd-invoice-item-form
+            [formModelItem]="formModelInvoiceItem"
+            [hasSelectedItem]="hasSelectedItem"
+            (submit)="onSaveProduct($event)"
+            (deleteItem)="onDeleteItem()">
+        </ndd-invoice-item-form>
+
+        <ndd-invoice-item-list 
+            [invoiceItems]="formModel.get('invoiceItems').value"
+            [height]="'400px'"
+            (selectItem)="onSelectedItem($event)">
+        </ndd-invoice-item-list>
+    </div>
+
+    <div class="feature-view-tab__footer">
+        <button type="submit" class="ndd-ng-button ndd-ng-button--primary" [disabled]="formModel.invalid">Salvar</button>
+        <button type="button" class="ndd-ng-button ndd-ng-button--cancel" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

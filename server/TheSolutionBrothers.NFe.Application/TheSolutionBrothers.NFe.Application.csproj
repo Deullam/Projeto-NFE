@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{7A05CED0-C6C2-4D7E-8662-AE1322587617}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheSolutionBrothers.NFe.Application</RootNamespace>
+    <AssemblyName>TheSolutionBrothers.NFe.Application</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=7.0.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.7.0.1\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentValidation, Version=7.0.0.0, Culture=neutral, PublicKeyToken=7de548da2fbae0f0, processorArchitecture=MSIL">
+      <HintPath>..\packages\FluentValidation.7.6.105\lib\net45\FluentValidation.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.Annotations, Version=4.2.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Annotations.4.4.1\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.ComponentModel.Primitives, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ComponentModel.Primitives.4.3.0\lib\net45\System.ComponentModel.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net461\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Features\Addresses\AddressProfile.cs" />
+    <Compile Include="Features\Addresses\commands\AddressCommand.cs" />
+    <Compile Include="Features\Addresses\ViewModels\AddessViewModel.cs" />
+    <Compile Include="Features\Carriers\CarrierProfile.cs" />
+    <Compile Include="Features\Carriers\Commands\CarrierDeleteCommand.cs" />
+    <Compile Include="Features\Carriers\Commands\CarrierRegisterCommand.cs" />
+    <Compile Include="Features\Carriers\Commands\CarrierUpdateCommand.cs" />
+    <Compile Include="Features\Carriers\Queries\CarrierGetAllQuery.cs" />
+    <Compile Include="Features\Carriers\ViewModels\CarrierViewModel.cs" />
+    <Compile Include="Features\Invoices\Commands\InvoiceItemDeleteCommand.cs" />
+    <Compile Include="Features\Invoices\Commands\InvoiceDeleteCommand.cs" />
+    <Compile Include="Features\Invoices\Commands\InvoiceItemUpdateCommand.cs" />
+    <Compile Include="Features\Invoices\Commands\InvoiceItemRegisterCommand.cs" />
+    <Compile Include="Features\Invoices\Commands\InvoiceRegisterCommand.cs" />
+    <Compile Include="Features\Invoices\Commands\InvoiceUpdateCommand.cs" />
+    <Compile Include="Features\Invoices\IInvoiceService.cs" />
+    <Compile Include="Features\Invoices\InvoiceProfile.cs" />
+    <Compile Include="Features\Invoices\InvoiceService.cs" />
+    <Compile Include="Features\Invoices\Queries\InvoiceGetAllQuery.cs" />
+    <Compile Include="Features\Invoices\ViewModels\InvoiceItemViewModel.cs" />
+    <Compile Include="Features\Invoices\ViewModels\InvoiceTaxViewModel.cs" />
+    <Compile Include="Features\Invoices\ViewModels\InvoiceViewModel.cs" />
+    <Compile Include="Features\Products\Commands\ProductDeleteCommand.cs" />
+    <Compile Include="Features\Products\Commands\ProductRegisterCommand.cs" />
+    <Compile Include="Features\Products\Commands\ProductUpdateCommand.cs" />
+    <Compile Include="Features\Products\ProductProfile.cs" />
+    <Compile Include="Features\Products\Queries\ProductGetAllQuery.cs" />
+    <Compile Include="Features\Products\ViewModels\ProductViewModel.cs" />
+    <Compile Include="Features\Receivers\Commands\ReceiverDeleteCommand.cs" />
+    <Compile Include="Features\Receivers\Commands\ReceiverRegisterCommand.cs" />
+    <Compile Include="Features\Receivers\Commands\ReceiverUpdateCommand.cs" />
+    <Compile Include="Features\Receivers\IReceiverService.cs" />
+    <Compile Include="Features\Receivers\Queries\ReceiverGetAllQuery.cs" />
+    <Compile Include="Features\Receivers\ReceiverProfile.cs" />
+    <Compile Include="Features\Receivers\ReceiverService.cs" />
+    <Compile Include="Features\Carriers\CarrierService.cs" />
+    <Compile Include="Features\Carriers\ICarrierService.cs" />
+    <Compile Include="Features\Receivers\ViewModels\ReceiverViewModel.cs" />
+    <Compile Include="Features\Senders\Commands\SenderDeleteCommand.cs" />
+    <Compile Include="Features\Senders\Commands\SenderRegisterCommandcs.cs" />
+    <Compile Include="Features\Senders\Commands\SenderUpdateCommand.cs" />
+    <Compile Include="Features\Senders\ISenderService.cs" />
+    <Compile Include="Features\Senders\Queries\SenderGetAllQuery.cs" />
+    <Compile Include="Features\Senders\SenderProfile.cs" />
+    <Compile Include="Features\Senders\SenderService.cs" />
+    <Compile Include="Features\Products\IProductService.cs" />
+    <Compile Include="Features\Products\ProductService.cs" />
+    <Compile Include="Features\Senders\ViewModels\SenderViewModel.cs" />
+    <Compile Include="Features\Users\IUserService.cs" />
+    <Compile Include="Features\Users\UserService.cs" />
+    <Compile Include="Mappers\AutoMapperConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Domain\TheSolutionBrothers.NFe.Domain.csproj">
+      <Project>{C6A0212F-3D78-47B2-8337-C3008B41C9F8}</Project>
+      <Name>TheSolutionBrothers.NFe.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Infra.Data\TheSolutionBrothers.NFe.Infra.Data.csproj">
+      <Project>{4B50CF04-56AF-4022-823A-C3C2DD9ACC61}</Project>
+      <Name>TheSolutionBrothers.NFe.Infra.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Infra.PDF\TheSolutionBrothers.NFe.Infra.PDF.csproj">
+      <Project>{1446B934-B151-46C2-8C47-D1431810BF05}</Project>
+      <Name>TheSolutionBrothers.NFe.Infra.PDF</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Infra.XML\TheSolutionBrothers.NFe.Infra.XML.csproj">
+      <Project>{88E6D708-94E9-4408-956C-44B77E3EBD3A}</Project>
+      <Name>TheSolutionBrothers.NFe.Infra.XML</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Infra\TheSolutionBrothers.NFe.Infra.csproj">
+      <Project>{11CC1658-E2C4-45FA-BB48-F450F40DCDBD}</Project>
+      <Name>TheSolutionBrothers.NFe.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

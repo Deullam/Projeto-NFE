@@ -1,0 +1,58 @@
+
+<form (ngSubmit)="onSubmit($event)" [formGroup]="formModelItem">
+    <section>
+        <div class="row">
+            <div class="col-sm-12">
+                <h1 class="form__title">ITENS DA NOTA FISCAL</h1>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-6 form__fieldset">
+
+                <div class="row">
+                    <div class="col-sm-12 form__group">
+                        <label for="product" class="form__label" [class.form__label--error]="formModelItem.get('product').touched && formModelItem.get('product').hasError('required')">
+                            Produto
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <kendo-dropdownlist
+                            [data]="productData"
+                            formControlName="product"
+                            [textField]="'description'"
+                            [valueField]="'description'"
+                            [filterable]="true"
+                            (filterChange)="onProductAutoCompleteChange($event)"
+                            class="form__k-dropdown">
+                        </kendo-dropdownlist>
+                        <label class="form__label form__label--error" *ngIf="formModelItem.get('product').touched && formModelItem.get('product').hasError('required')">
+                            Campo obrigatório
+                        </label>     
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-6 form__fieldset">
+                <div class="row">
+
+                    <div class="col-sm-12 form__group">
+                        <label for="amount" class="form__label" [class.form__label--error]="formModelItem.get('amount').touched && formModelItem.get('amount').hasError('required')">
+                            Quantidade
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <input type="number" id="amount" formControlName="amount" class="form__input" placeholder="Informe a quantidade">
+                        <label class="form__label form__label--error" *ngIf="formModelItem.get('amount').touched && formModelItem.get('amount').hasError('required')">
+                            Campo obrigatório
+                        </label>     
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12 col-md-6 form__fieldset">
+                <button type="submit" class="ndd-ng-button ndd-ng-button--primary" [disabled]="formModelItem.invalid">{{ hasSelectedItem ? 'Atualizar' : 'Adicionar' }}</button> 
+                <button type="button" (click)="onDeleteItem()" class="ndd-ng-button ndd-ng-button--cancel" [disabled]='!hasSelectedItem'>Remover</button>
+            </div>
+        </div>
+    </section>
+</form>

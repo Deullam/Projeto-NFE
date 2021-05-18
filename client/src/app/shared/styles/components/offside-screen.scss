@@ -1,0 +1,21 @@
+$ndd-sidebar-width-expand: 35px;
+
+.product-offside-screen__content {
+    
+    width: 100%;
+    height: 500px;
+    z-index: 9;
+    display: inline-block;
+
+    &__side-bar {
+        width: $ndd-sidebar-width-expand;
+        height: 100%;
+        background-color: red;
+    }
+
+    &__grid {
+        width: calc(100% - $ndd-sidebar-width-expand);
+        height: 100%;
+    }
+
+}

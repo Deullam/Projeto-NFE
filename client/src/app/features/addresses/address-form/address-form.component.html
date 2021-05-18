@@ -1,0 +1,106 @@
+<section [formGroup]="formModel">    
+    <div class="row">
+        <div class="col-sm-12">
+            <h1 class="form__title">ENDEREÇO</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 form__fieldset">
+
+            <div class="row">
+                <div class="col-sm-12 form__group">
+                    <label for="streetName" class="form__label" [class.form__label--error]="formModel.get('streetName').touched && formModel.get('streetName').hasError('required')">
+                        Rua
+                        <span class="form__label form__label--required">*</span>
+                    </label>
+                    <input type="text" id="streetName" formControlName="streetName" class="form__input" placeholder="Informe o nome da rua" [class.form__input--error]="formModel.get('streetName').touched && formModel.get('streetName').hasError('required')">
+                    <label class="form__label form__label--error" *ngIf="formModel.get('streetName').touched && formModel.get('streetName').hasError('required')">
+                        Campo obrigatório
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 form__fieldset">
+            <div class="row">
+
+                <div class="col-sm-12 form__group">
+                    <label for="number" class="form__label" [class.form__label--error]="formModel.get('number').touched && formModel.get('number').hasError('required')">
+                        Número
+                        <span class="form__label form__label--required">*</span>
+                    </label>
+                    <input type="text" id="number" formControlName="number" class="form__input" placeholder="Informe o número da residência" [class.form__input--error]="formModel.get('number').touched && formModel.get('number').hasError('required')">
+                    <label class="form__label form__label--error" *ngIf="formModel.get('number').touched && formModel.get('number').hasError('required')">
+                        Campo obrigatório
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 form__fieldset">
+            <div class="row">
+
+                <div class="col-sm-12 form__group">
+                    <label for="neighborhood" class="form__label" [class.form__label--error]="formModel.get('neighborhood').touched && formModel.get('neighborhood').hasError('required')">
+                        Bairro
+                        <span class="form__label form__label--required">*</span>
+                    </label>
+                    <input type="text" id="neighborhood" formControlName="neighborhood" class="form__input" placeholder="Informe o nome do bairro" [class.form__input--error]="formModel.get('neighborhood').touched && formModel.get('neighborhood').hasError('required')">
+                    <label class="form__label form__label--error" *ngIf="formModel.get('neighborhood').touched && formModel.get('neighborhood').hasError('required')">
+                        Campo obrigatório
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 form__fieldset">
+            <div class="row">
+                <div class="col-sm-12 form__group">
+                    <label for="city" class="form__label" [class.form__label--error]="formModel.get('city').touched && formModel.get('city').hasError('required')">
+                        Cidade
+                        <span class="form__label form__label--required">*</span>
+                    </label>
+                    <input type="text" id="city" formControlName="city" class="form__input" placeholder="Informe o nome da cidade" [class.form__input--error]="formModel.get('city').touched && formModel.get('city').hasError('required')">
+                    <label class="form__label form__label--error" *ngIf="formModel.get('city').touched && formModel.get('city').hasError('required')">
+                        Campo obrigatório
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-12 col-md-6 form__fieldset">
+            <div class="row">
+                <div class="col-sm-12 form__group">
+                    <label for="state" class="form__label" [class.form__label--error]="formModel.get('state').touched && formModel.get('state').hasError('required')">
+                        Estado
+                        <span class="form__label form__label--required">*</span>
+                    </label>
+                    <input type="text" id="state" formControlName="state" class="form__input" placeholder="Informe o nome do estado" [class.form__input--error]="formModel.get('state').touched && formModel.get('state').hasError('required')">
+                    <label class="form__label form__label--error" *ngIf="formModel.get('state').touched && formModel.get('state').hasError('required')">
+                        Campo obrigatório
+                    </label>
+                    <label class="form__label form__label--error" *ngIf="formModel.get('state').touched && formModel.get('state').hasError('maxlength')">
+                        Campo não pode possuir mais que 2 caracteres
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-6 form__fieldset">
+            <div class="row">
+                <div class="col-sm-12 form__group">
+                    <label for="country" class="form__label" [class.form__label--error]="formModel.get('country').touched && formModel.get('country').hasError('required')">
+                        País
+                        <span class="form__label form__label--required">*</span>
+                    </label>
+                    <input type="text" id="country" formControlName="country" class="form__input" placeholder="Informe o nome do país" [class.form__input--error]="formModel.get('country').touched && formModel.get('country').hasError('required')">
+                    <label class="form__label form__label--error"  *ngIf="formModel.get('country').touched && formModel.get('country').hasError('required')">
+                        Campo obrigatório
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

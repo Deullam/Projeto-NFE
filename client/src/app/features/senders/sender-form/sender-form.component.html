@@ -1,0 +1,110 @@
+<form (ngSubmit)="onSubmit($event)" [formGroup]="formModel" class="form">
+    <div class="feature-view-tab__content">
+        <section>
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1 class="form__title">Dados cadastrais</h1>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="fancyName" class="form__label" [class.form__label--error]="formModel.get('fancyName').touched && formModel.get('fancyName').hasError('required')">
+                                <span>Nome Fantasia</span>
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input type="text" id="fancyName" placeholder="Informe o nome fantasia" formControlName="fancyName" class="form__input" [class.form__input--error]="formModel.get('fancyName').touched && formModel.get('fancyName').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('fancyName').touched && formModel.get('fancyName').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="companyName" class="form__label" [class.form__label--error]="formModel.get('companyName').touched && formModel.get('companyName').hasError('required')">
+                                <span>Razão Social</span>
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input type="text" id="companyName" placeholder="Informe a razão social" formControlName="companyName" class="form__input" [class.form__input--error]="formModel.get('companyName').touched && formModel.get('companyName').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('companyName').touched && formModel.get('companyName').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="cnpj" class="form__label" [class.form__label--error]="formModel.get('cnpj').touched
+                                    && formModel.get('cnpj').hasError('required') && formModel.get('cnpj').hasError('invalidcnpj')">
+                                CNPJ
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input [textMask]="{mask: cnpjMask}" type="text" id="cnpj" formControlName="cnpj" class="form__input"
+                                placeholder="**.***.***/****-**" [class.form__input--error]="formModel.get('cnpj').touched && formModel.get('cnpj').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('cnpj').touched && formModel.get('cnpj').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                            <label class="form__label form__label--error" *ngIf="formModel.get('cnpj').touched && 
+                                        !formModel.get('cnpj').hasError('required') && formModel.get('cnpj').hasError('invalidcnpj')">
+                                CNPJ inválido
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="stateRegistration" class="form__label" [class.form__label--error]="formModel.get('stateRegistration').touched && formModel.get('stateRegistration').hasError('required')">
+                                <span>Inscrição Estadual</span>
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input type="text" id="stateRegistration" placeholder="Informe a inscrição estadual" formControlName="stateRegistration" class="form__input" [class.form__input--error]="formModel.get('stateRegistration').touched && formModel.get('stateRegistration').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('stateRegistration').touched && formModel.get('stateRegistration').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-sm-12 col-md-6 form__fieldset">
+                    <div class="row">
+                        <div class="col-sm-12 form__group">
+                            <label for="municipalRegistration" class="form__label" [class.form__label--error]="formModel.get('municipalRegistration').touched && formModel.get('municipalRegistration').hasError('required')">
+                                <span>Inscrição Municipal</span>
+                                <span class="form__label form__label--required">*</span>
+                            </label>
+                            <input type="text" id="municipalRegistration" placeholder="Informe a inscrição municipal" formControlName="municipalRegistration" class="form__input" [class.form__input--error]="formModel.get('municipalRegistration').touched && formModel.get('municipalRegistration').hasError('required')">
+                            <label class="form__label form__label--error" *ngIf="formModel.get('municipalRegistration').touched && formModel.get('municipalRegistration').hasError('required')">
+                                Campo obrigatório
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <ndd-address-form [formModel]="formModel.get('address')"></ndd-address-form>
+    </div>
+
+    <div class="feature-view-tab__footer">
+        <button type="submit" class="ndd-ng-button ndd-ng-button--primary" [disabled]="formModel.invalid">Salvar</button>
+        <button type="button" class="ndd-ng-button ndd-ng-button--cancel" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

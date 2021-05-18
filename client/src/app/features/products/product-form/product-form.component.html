@@ -1,0 +1,72 @@
+<form (ngSubmit)="onSubmit($event)" [formGroup]="formModel" class="form">
+    <div class="feature-view-tab__content">
+        <div class="row">  
+            <div class="col-sm-12">
+                <h1 class="form__title">Dados cadastrais</h1>
+            </div>    
+        </div>
+
+        <div class="row">
+            <div class="col-sm-6 form__fieldset">
+                <div class="row">
+                    <div class="col-md-12 form__group">
+                        <label for="code" class="form__label" [class.form__label--error]="formModel.get('code').touched && formModel.get('code').hasError('required')">
+                            Código
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <input type="text" id="code" formControlName="code" class="form__input" placeholder="Informe o código do produto" [class.form__input--error]="formModel.get('code').touched && formModel.get('code').hasError('required')">
+                        <label class="form__label form__label--error" 
+                            *ngIf="formModel.get('code').touched && formModel.get('code').hasError('required')">
+                            Campo obrigatório
+                        </label>
+                        <label class="form__label form__label--error" *ngIf="formModel.get('code').touched && formModel.get('code').hasError('maxlength')">
+                            Campo não pode possuir mais que 14 caracteres
+                        </label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12 form__group">
+                        <label for="description" class="form__label" [class.form__label--error]="formModel.get('description').touched && formModel.get('description').hasError('required')">
+                            Descrição
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <textarea rows="10" cols="30" type="text" id="description" formControlName="description" 
+                            class="form__input__multiline" placeholder="Informe a descrição do produto" 
+                            [class.form__input__multiline--error]="formModel.get('description').touched && formModel.get('description').hasError('required')"></textarea>
+                        <label class="form__label form__label--error" 
+                            *ngIf="formModel.get('description').touched && formModel.get('description').hasError('required')">
+                            Campo obrigatório
+                        </label>
+                        <label class="form__label form__label--error" *ngIf="formModel.get('description').touched && formModel.get('description').hasError('maxlength')">
+                            Campo não pode possuir mais que 60 caracteres
+                        </label>
+                    </div>
+                </div>                
+            </div>
+
+            <div class="col-sm-6 form__fieldset">
+                <div class="row">
+                    <div class="col-md-12 form__group">
+                        <label for="currentValue" class="form__label" [class.form__label--error]="formModel.get('currentValue').touched && formModel.get('currentValue').hasError('required')">
+                            Valor Atual
+                            <span class="form__label form__label--required">*</span>
+                        </label>
+                        <input type="number" id="currentValue" formControlName="currentValue" class="form__input" placeholder="0,00" [class.form__input--error]="formModel.get('currentValue').touched && formModel.get('currentValue').hasError('required')">
+                        <label class="form__label form__label--error" 
+                            *ngIf="formModel.get('currentValue').touched && formModel.get('currentValue').hasError('required')">
+                            Campo obrigatório
+                        </label>
+                        <label class="form__label form__label--error" *ngIf="formModel.get('currentValue').touched && formModel.get('currentValue').hasError('min')">
+                            Campo não pode possuir valor igual a zero
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="feature-view-tab__footer">
+        <button type="submit" class="ndd-ng-button ndd-ng-button--primary" [disabled]="formModel.invalid">Salvar</button>
+        <button type="button" class="ndd-ng-button ndd-ng-button--cancel" (click)="onCancel()">Cancelar</button>
+    </div>
+</form>

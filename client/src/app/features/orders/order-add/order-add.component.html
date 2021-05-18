@@ -1,0 +1,24 @@
+<div class="feature-view">
+    <ndd-ng-titlebar titlebarIcon="ndd-font ndd-font-cardboard-box"
+        [titlebarTitle]="title"
+        [titlebarRouterToReturnOnClose]="returnRoute">
+    </ndd-ng-titlebar>
+    
+    <ndd-ng-tabsbar>
+        <ndd-ng-tab tabId="ndd-ng-tab-product-info"
+            [tabRoute]="'./'"
+            tabTitle="Dados cadastrais">            
+        </ndd-ng-tab>
+    </ndd-ng-tabsbar>
+
+    <div class="feature-view__content">
+        <ndd-order-form 
+            [formModel]="form"
+            (submit)="onSubmit($event)"
+            (cancel)="redirect()">
+        </ndd-order-form>
+    </div>
+</div>
+
+<div class="ndd-ng-spinner__spinner" *ngIf="isLoading"></div>
+<div class="ndd-ng-spinner__color" *ngIf="isLoading"></div>

@@ -1,0 +1,36 @@
+<kendo-grid 
+    [data]="productGridService | async" 
+    [pageSize]="state.take" 
+    [loading]="productGridService.loading"
+    [skip]="state.skip"
+    [sort]="state.sort" 
+    [sortable]="true" 
+    [pageable]="pageableSettings"
+    [selectable]="selectableSettings"
+    [style.height]="'100%'"
+    (dataStateChange)="dataStateChange($event)"
+    (selectionChange)="onSelectionChange($event)">
+    
+    <ng-template kendoGridToolbarTemplate position="top">
+        <div class="pkg-manager-grid__action-container">
+            <button (click)="onClick()" class="pkg-manager-grid__action">
+                <i class="ndd-font ndd-font-create pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Novo produto</span>
+            </button>
+            <button (click)="deleteProduct()" class="pkg-manager-grid__action"  [disabled]="!selectedRows.length">
+                <i class="ndd-font ndd-font-delete pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Remover</span>
+            </button>
+            <button (click)="redirectOpenProduct()" class="pkg-manager-grid__action" [disabled]="selectedRows.length != 1">
+                <i class="ndd-font ndd-font-open pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Abrir</span>
+            </button>
+        </div>
+    </ng-template>
+
+    <kendo-grid-checkbox-column width="40"></kendo-grid-checkbox-column>
+    <kendo-grid-column field="id" title="ID" width="60"></kendo-grid-column>
+    <kendo-grid-column field="code" title="Código" width="60"></kendo-grid-column>
+    <kendo-grid-column field="description" title="Descrição" width="500"></kendo-grid-column>
+    <kendo-grid-column field="currentValue" title="Valor Atual" format="{0:c}" width="120"></kendo-grid-column>
+</kendo-grid>

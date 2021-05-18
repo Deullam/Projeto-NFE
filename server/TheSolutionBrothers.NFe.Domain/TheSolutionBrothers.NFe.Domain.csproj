@@ -1,0 +1,181 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C6A0212F-3D78-47B2-8337-C3008B41C9F8}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TheSolutionBrothers.NFe.Domain</RootNamespace>
+    <AssemblyName>TheSolutionBrothers.NFe.Domain</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Base\Entity.cs" />
+    <Compile Include="Base\PersonType.cs" />
+    <Compile Include="Exceptions\BusinessException.cs" />
+    <Compile Include="Exceptions\ErrorCodes.cs" />
+    <Compile Include="Exceptions\IdentifierUndefinedException.cs" />
+    <Compile Include="Exceptions\InvalidCredentialsException.cs" />
+    <Compile Include="Exceptions\InvalidPathException.cs" />
+    <Compile Include="Exceptions\NotFoundException.cs" />
+    <Compile Include="Exceptions\UnsupportedOperationException.cs" />
+    <Compile Include="Features\Addresses\Address.cs" />
+    <Compile Include="Features\Addresses\AddressNegativeNumberException.cs" />
+    <Compile Include="Features\Addresses\AddressCityLengthOverflowException.cs" />
+    <Compile Include="Features\Addresses\AddressStateLengthOverflowException.cs" />
+    <Compile Include="Features\Addresses\AddressNeighborhoodLengthOverflowException.cs" />
+    <Compile Include="Features\Addresses\AddressCountryLengthOverflowException.cs" />
+    <Compile Include="Features\Addresses\AddressUninformedCityException.cs" />
+    <Compile Include="Features\Addresses\AddressUninformedStateException.cs" />
+    <Compile Include="Features\Addresses\AddressUninformedCountryException.cs" />
+    <Compile Include="Features\Addresses\AddressUninformedNeighborhoodException.cs" />
+    <Compile Include="Features\Addresses\AddressStreetNameLengthOverflowException.cs" />
+    <Compile Include="Features\Addresses\AddressUninformedStreetNameException.cs" />
+    <Compile Include="Features\Addresses\IAddressRepository.cs" />
+    <Compile Include="Features\InvoiceCarriers\InvoiceCarrierNullReceiverException.cs" />
+    <Compile Include="Features\Carriers\CarrierDeleteWithDependenceException.cs" />
+    <Compile Include="Features\InvoiceCarriers\InvoiceCarrierNullInvoiceException.cs" />
+    <Compile Include="Features\InvoiceCarriers\InvoiceCarrierNullCarrierException.cs" />
+    <Compile Include="Features\InvoiceCarriers\IInvoiceCarrierRepository.cs" />
+    <Compile Include="Features\InvoiceCarriers\InvoiceCarrier.cs" />
+    <Compile Include="Features\InvoiceItems\IInvoiceItemRepository.cs" />
+    <Compile Include="Features\InvoiceItems\InvoiceItem.cs" />
+    <Compile Include="Features\InvoiceItems\InvoiceItemInvalidAmountException.cs" />
+    <Compile Include="Features\InvoiceItems\InvoiceItemNullInvoiceException.cs" />
+    <Compile Include="Features\InvoiceItems\InvoiceItemNullProductException.cs" />
+    <Compile Include="Features\InvoiceItems\InvoiceItemUninformedAmoutException.cs" />
+    <Compile Include="Features\InvoiceReceivers\IInvoiceReceiverRepository.cs" />
+    <Compile Include="Features\InvoiceReceivers\InvoiceReceiver.cs" />
+    <Compile Include="Features\InvoiceReceivers\InvoiceReceiverNullReceiverException.cs" />
+    <Compile Include="Features\InvoiceReceivers\InvoiceReceiverNullInvoiceException.cs" />
+    <Compile Include="Features\InvoiceSenders\IInvoiceSenderRepository.cs" />
+    <Compile Include="Features\InvoiceSenders\InvoiceSender.cs" />
+    <Compile Include="Features\Invoices\InvoiceDeleteIssuedInvoiceException.cs" />
+    <Compile Include="Features\Invoices\InvoiceExistentNumberException.cs" />
+    <Compile Include="Features\Invoices\InvoiceExportInvalidPathException.cs" />
+    <Compile Include="Features\Invoices\InvoiceExportOpenInvoiceException.cs" />
+    <Compile Include="Features\Invoices\InvoiceIssueDateBeforeEntryDateException.cs" />
+    <Compile Include="Features\Invoices\InvoiceIssueDateAfterNowException.cs" />
+    <Compile Include="Features\Invoices\InvoiceIssueIssuedInvoiceException.cs" />
+    <Compile Include="Features\Invoices\InvoiceKeyAccessExistentException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNaruteOperationLengthOverflowException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullInvoiceTaxException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullIssueDateException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullInvoiceCarrierException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullInvoiceReceiverException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullReceiverException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullInvoiceSenderException.cs" />
+    <Compile Include="Features\Invoices\InvoiceEntryDateAfterNowException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNonPositiveNumberException.cs" />
+    <Compile Include="Features\Invoices\InvoiceEmptyInvoiceItemsException.cs" />
+    <Compile Include="Features\Invoices\InvoiceReceiverEqualThanSenderException.cs" />
+    <Compile Include="Features\Invoices\InvoiceSaveIssuedInvoiceException.cs" />
+    <Compile Include="Features\Invoices\InvoiceType.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullSenderException.cs" />
+    <Compile Include="Features\Invoices\InvoiceUninformedNaruteOperationException.cs" />
+    <Compile Include="Features\Invoices\InvoiceNullKeyAccessException.cs" />
+    <Compile Include="Features\InvoiceSenders\InvoiceSenderNullInvoiceException.cs" />
+    <Compile Include="Features\InvoiceSenders\InvoiceSenderNullSenderException.cs" />
+    <Compile Include="Features\Invoices\IInvoiceRepository.cs" />
+    <Compile Include="Features\Invoices\Invoice.cs" />
+    <Compile Include="Features\Invoices\InvoiceUpdateIssuedInvoiceException.cs" />
+    <Compile Include="Features\InvoiceTaxes\IInvoiceTaxRepository.cs" />
+    <Compile Include="Features\InvoiceTaxes\InvoiceTaxNullInvoiceException.cs" />
+    <Compile Include="Features\InvoiceTaxes\InvoiceTaxNegativeFreightException.cs" />
+    <Compile Include="Features\InvoiceTaxes\InvoiceTaxNonPositiveTotalValueProductsException.cs" />
+    <Compile Include="Features\InvoiceTaxes\InvoiceTaxNonPositiveIpiValueException.cs" />
+    <Compile Include="Features\InvoiceTaxes\InvoiceTaxNonPositiveIcmsValueException.cs" />
+    <Compile Include="Features\InvoiceTaxes\InvoiceTax.cs" />
+    <Compile Include="Features\Products\ProductDeleteWithDependencesException.cs" />
+    <Compile Include="Features\Receivers\IReceiverRepository.cs" />
+    <Compile Include="Features\Receivers\Receiver.cs" />
+    <Compile Include="Features\Receivers\ReceiverCompanyNameLengthOverflowException.cs" />
+    <Compile Include="Features\Receivers\ReceiverDeleteWithDependenceException.cs" />
+    <Compile Include="Features\Receivers\ReceiverUninformedAddressException.cs" />
+    <Compile Include="Features\Receivers\ReceiverStateRegistrationLengthOverflowException.cs" />
+    <Compile Include="Features\Receivers\ReceiverNameLengthOverflowException .cs" />
+    <Compile Include="Features\Receivers\ReceiverUninformedStateRegistrationException.cs" />
+    <Compile Include="Features\Receivers\ReceiverNullCnpjException.cs" />
+    <Compile Include="Features\Receivers\ReceiverNullCpfException.cs" />
+    <Compile Include="Features\Receivers\ReceiverUninformedCompanyNameException .cs" />
+    <Compile Include="Features\Receivers\ReceiverUninformedNameException.cs" />
+    <Compile Include="Features\Carriers\Carrier.cs" />
+    <Compile Include="Features\Carriers\CarrierCompanyNameLenghtOverflowException.cs" />
+    <Compile Include="Features\Carriers\CarrierNameLenghtOverflowException.cs" />
+    <Compile Include="Features\Carriers\CarrierNullAddressException.cs" />
+    <Compile Include="Features\Carriers\CarrierStateRegistrationLenghtOverException.cs" />
+    <Compile Include="Features\Carriers\CarrierNullCNPJException.cs" />
+    <Compile Include="Features\Carriers\CarrierUninformedCompanyNameException.cs" />
+    <Compile Include="Features\Carriers\CarrierNullCPFException.cs" />
+    <Compile Include="Features\Carriers\CarrierUninformedFreightException.cs" />
+    <Compile Include="Features\Carriers\CarrierUninformedNameException.cs" />
+    <Compile Include="Features\Carriers\CarrierUninformedPersonTypeException.cs" />
+    <Compile Include="Features\Carriers\CarrierUninformedStateRegistrationException.cs" />
+    <Compile Include="Features\Carriers\FreightResponsability.cs" />
+    <Compile Include="Features\Carriers\ICarrierRepository.cs" />
+    <Compile Include="Features\Senders\ISenderRepository.cs" />
+    <Compile Include="Features\Senders\Sender.cs" />
+    <Compile Include="Features\Senders\SenderCompanyNameLenghtOverFlowException.cs" />
+    <Compile Include="Features\Senders\SenderFancyNameLenghtOverFlowException.cs" />
+    <Compile Include="Features\Senders\SenderMunicipalRegistrationLenghtOverFlowException.cs" />
+    <Compile Include="Features\Senders\SenderNullAddressException.cs" />
+    <Compile Include="Features\Senders\SenderDeleteWithDependenceException.cs" />
+    <Compile Include="Features\Senders\SenderStateRegistrationLenghtOverFlowException.cs" />
+    <Compile Include="Features\Senders\SenderNullCnpjException.cs" />
+    <Compile Include="Features\Senders\SenderUninformedCompanyNameException.cs" />
+    <Compile Include="Features\Senders\SenderUninformedFancyNameException.cs" />
+    <Compile Include="Features\Senders\SenderUninformedMunicipalRegistrationException.cs" />
+    <Compile Include="Features\Senders\SenderUninformedStateRegistrationException.cs" />
+    <Compile Include="Features\Products\IProductRepository.cs" />
+    <Compile Include="Features\Products\Product.cs" />
+    <Compile Include="Features\Products\ProductNullTaxProductException.cs" />
+    <Compile Include="Features\Products\ProductDescriptionLengthOverflowException.cs" />
+    <Compile Include="Features\Products\ProductCurrentValueLowerOrEqualThanZeroException.cs" />
+    <Compile Include="Features\Products\ProductCodeLengthOverflowException.cs" />
+    <Compile Include="Features\Products\ProductUninformedDescriptionException.cs" />
+    <Compile Include="Features\Products\ProductUninformedCodeException.cs" />
+    <Compile Include="Features\TaxProducts\TaxProduct.cs" />
+    <Compile Include="Features\Users\IUserRepository.cs" />
+    <Compile Include="Features\Users\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\TheSolutionBrothers.NFe.Infra\TheSolutionBrothers.NFe.Infra.csproj">
+      <Project>{11CC1658-E2C4-45FA-BB48-F450F40DCDBD}</Project>
+      <Name>TheSolutionBrothers.NFe.Infra</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

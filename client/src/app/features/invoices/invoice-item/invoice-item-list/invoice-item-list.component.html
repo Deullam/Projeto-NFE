@@ -1,0 +1,28 @@
+<kendo-grid 
+    [data]="invoiceItems"
+    [style.height]="height"
+    [selectable]="selectableSettings"
+    (dataStateChange)="dataStateChange($event)"
+    (selectionChange)="onSelectionChange($event)">
+
+    <ng-template kendoGridToolbarTemplate position="top">
+        <div class="pkg-manager-grid__action-container">
+            <button (click)="teste()" class="pkg-manager-grid__action">
+                <i class="ndd-font ndd-font-create pkg-manager-grid__action__icon"></i>
+                <span class="pkg-manager-grid__action__description">Teste</span>
+            </button>
+        </div>
+    </ng-template>
+
+    <kendo-grid-checkbox-column width="40"></kendo-grid-checkbox-column>
+    <kendo-grid-column title="Descrição">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <div>{{ dataItem.product?.description }}</div>
+        </ng-template>
+    </kendo-grid-column>
+    <kendo-grid-column title="Quantidade" width="120">
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <div>{{ dataItem.amount }}</div>
+        </ng-template>
+    </kendo-grid-column>
+</kendo-grid>
